@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Table from './components/Table';
+import { Container, Row, Col } from 'react-bootstrap';
+
 
 const SectorDetails = () => {
     const [details, setDetails] = useState(null);
@@ -25,10 +27,14 @@ const SectorDetails = () => {
     ]
     
     return (
-      <div>
-        <h2>Data Table</h2>
-        <Table columns={columns} data={details}/>
-      </div>
+      <Container fluid>
+        <Row>
+          <Col md={6}>
+              <h2>Earnings Growth Table</h2>
+              <Table columns={columns} data={details}/>
+         </Col>
+        </Row>
+      </Container>
     );
 };
 

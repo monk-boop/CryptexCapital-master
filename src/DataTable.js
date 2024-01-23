@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Table from './components/Table';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const DataTable = () => {
     const [data, setData] = useState([]);
@@ -35,10 +36,19 @@ const DataTable = () => {
     ];
 
     return (
-      <div>
-        <h2>Data Table</h2>
-        <Table columns={columns} data={data} onRowClick={handleSectorClick} />
-      </div>
+      <Container fluid>
+        <Row>
+          <Col md={6}>
+              <h2>Earnings Growth Table</h2>
+              <Table columns={columns} data={data} onRowClick={handleSectorClick} />
+          </Col>
+          <Col md={6}>
+              <h2>Earnings Growth Table</h2>
+              <Table columns={columns} data={data} onRowClick={handleSectorClick} />
+          </Col>
+        </Row>
+      </Container>
+   
       );
 };
 
