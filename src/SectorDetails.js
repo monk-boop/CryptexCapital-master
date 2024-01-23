@@ -20,20 +20,45 @@ const SectorDetails = () => {
     
     return (
         <div>
-            <h2>Sector Details: {sector}</h2>
+          <h2>Sector Details: {sector}</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Column1</th>
+                <th>Column2</th>
+                {/* Add more headers based on your DataFrame columns */}
+              </tr>
+            </thead>
+            <tbody>
             {details && Array.isArray(details) && (
-
-            <ul>
-                {details.map((detail, index) => (
-                    <li key={index}>
+                details.map((detail, index) => (
+                    <tr key={index}>
                         {/* Render each detail - adjust based on your actual data structure */}
-                        Ticker: {detail.ticker}
-                        MoM: {detail.earnings_min}
-                    </li>
-                ))}
-            </ul>
-        )}
+                       <td>{detail.ticker}</td> 
+                        <td>{detail.earnings_min}</td>
+                    </tr>
+                ))
+            )}
+            </tbody>
+          </table>
         </div>
+
+
+        // <div>
+        //     <h2>Sector Details: {sector}</h2>
+        //     {details && Array.isArray(details) && (
+        
+        //     <ul>
+        //         {details.map((detail, index) => (
+        //             <li key={index}>
+        //                 {/* Render each detail - adjust based on your actual data structure */}
+        //                 Ticker: {detail.ticker}
+        //                 MoM: {detail.earnings_min}
+        //             </li>
+        //         ))}
+        //     </ul>
+        // )}
+        // </div>
     );
 };
 
