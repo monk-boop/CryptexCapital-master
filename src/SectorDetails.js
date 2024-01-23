@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Table from './components/Table';
 
 const SectorDetails = () => {
     const [details, setDetails] = useState(null);
@@ -17,48 +18,17 @@ const SectorDetails = () => {
     }, [sector]);
 
     if (!details) return <div>Loading sector details...</div>;
+
+    const columns = [
+      { headerName: "Ticker", field: "ticker" },
+      { headerName: "Earnings Growth", field: "earnings_min" }
+    ]
     
     return (
-        <div>
-          <h2>Sector Details: {sector}</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Column1</th>
-                <th>Column2</th>
-                {/* Add more headers based on your DataFrame columns */}
-              </tr>
-            </thead>
-            <tbody>
-            {details && Array.isArray(details) && (
-                details.map((detail, index) => (
-                    <tr key={index}>
-                        {/* Render each detail - adjust based on your actual data structure */}
-                       <td>{detail.ticker}</td> 
-                        <td>{detail.earnings_min}</td>
-                    </tr>
-                ))
-            )}
-            </tbody>
-          </table>
-        </div>
-
-
-        // <div>
-        //     <h2>Sector Details: {sector}</h2>
-        //     {details && Array.isArray(details) && (
-        
-        //     <ul>
-        //         {details.map((detail, index) => (
-        //             <li key={index}>
-        //                 {/* Render each detail - adjust based on your actual data structure */}
-        //                 Ticker: {detail.ticker}
-        //                 MoM: {detail.earnings_min}
-        //             </li>
-        //         ))}
-        //     </ul>
-        // )}
-        // </div>
+      <div>
+        <h2>Data Table</h2>
+        <Table columns={columns} data={details}/>
+      </div>
     );
 };
 

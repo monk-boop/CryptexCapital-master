@@ -30,38 +30,15 @@ const DataTable = () => {
 
     const columns = [
       { headerName: "Sector", field: "Sector" },
-      { headerName: "Weighted Average", field: "Weighted_Average" }
+      { headerName: "Combined Earnings Growth", field: "Weighted_Average" }
       // ... more columns as needed
     ];
 
     return (
-
       <div>
         <h2>Data Table</h2>
         <Table columns={columns} data={data} onRowClick={handleSectorClick} />
       </div>
-
-        // <div>
-        //   <h2>Data Table</h2>
-        //   <table>
-        //     <thead>
-        //       <tr>
-        //         <th>Column1</th>
-        //         <th>Column2</th>
-        //         {/* Add more headers based on your DataFrame columns */}
-        //       </tr>
-        //     </thead>
-        //     <tbody>
-        //       {data.map((row, index) => (
-        //         <tr key={index}>
-        //           <td onClick={() => handleSectorClick(row.Sector)} style={{ cursor: 'pointer' }}>{row.Sector}</td>
-        //           <td>{row.Weighted_Average}</td>
-        //           {/* Add more cells based on your DataFrame columns */}
-        //         </tr>
-        //       ))}
-        //     </tbody>
-        //   </table>
-        // </div>
       );
 };
 

@@ -13,7 +13,7 @@ export default function Table({ columns, data, onRowClick }) {
             </thead>
             <tbody>
                 {data.map((row, rowIndex) => (
-                    <tr key={rowIndex} onClick={() => onRowClick(row.Sector)} style={{ cursor: 'pointer' }}>
+                    <tr key={rowIndex} onClick={() => onRowClick ? onRowClick(row.Sector) : null} style={{ cursor: onRowClick ? 'pointer' : 'default'  }}>
                         {columns.map((column, colIndex) => (
                             <td key={colIndex}>{row[column.field]}</td>
                         ))}
