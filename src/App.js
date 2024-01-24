@@ -2,15 +2,27 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import DataTable from './DataTable'
 import SectorDetails from './SectorDetails'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Sidebar from './components/Sidebar';
+import { Container, Row, Col } from 'react-bootstrap';
+
+
 
 function App() {
     return (
         <Router>
-            <Routes> 
-                <Route path="/" exact element={<DataTable />} />
-                <Route path="/api/sector/:sector" element={<SectorDetails/>} />
-            </Routes>
+            <Container fluid>
+                <Row>
+                    <Col md={3} lg={2} className="sidebar">
+                        <Sidebar /> 
+                    </Col>
+                    <Col md={9} lg={10} className="main-content">
+                        <Routes> 
+                            <Route path="/" exact element={<DataTable />} />
+                            <Route path="/api/sector/:sector" element={<SectorDetails/>} />
+                        </Routes>
+                    </Col>
+                </Row>
+            </Container>
         </Router>
     );
 
