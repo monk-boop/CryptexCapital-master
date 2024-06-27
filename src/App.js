@@ -1,37 +1,26 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import DataTable from './DataTable'
-import SectorDetails from './SectorDetails'
-import Sidebar from './components/Sidebar';
-import { Container, Row, Col } from 'react-bootstrap';
-
-
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import DataTable from "./pages/inrmomentum/DataTable";
+import SectorDetails from "./pages/inrmomentum/sectorDetails";
+import SelectionPage from "./pages/SelectionPage";
+import TickerAnalytics from "./pages/TickerAnalytics";
 
 function App() {
-    return (
-        <Router>
-            <Container fluid>
-                <Row>
-                    <Col md={3} lg={2} className="sidebar">
-                        <Sidebar /> 
-                    </Col>
-                    <Col md={9} lg={10} className="main-content">
-                        <Routes> 
-                            <Route path="/" exact element={<DataTable />} />
-                            <Route path="/api/sector/:sector" element={<SectorDetails/>} />
-                        </Routes>
-                    </Col>
-                </Row>
-            </Container>
-        </Router>
-    );
-
-    // return (
-    //     <div>
-    //         <h1>Your Data App</h1>
-    //         <DataTable />
-    //     </div>
-    // );
+  return (
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<SelectionPage />} />
+          <Route path="/data/:region" element={<DataTable />} />
+          <Route
+            path="/api/sector/:sectorName/:field"
+            element={<SectorDetails />}
+          />
+          <Route path="/ticker/:ticker" element={<TickerAnalytics />} />
+        </Routes>
+      </Router>
+    </div>
+  );
 }
 
 export default App;
