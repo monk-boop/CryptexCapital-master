@@ -1,1 +1,2 @@
-# Cryptex Capital Frontend
+# Frontend for my personal investment system.
+# moving to Streamlit.
